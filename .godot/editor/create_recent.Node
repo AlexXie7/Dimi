@@ -1,0 +1,10 @@
+Label
+CollisionShape2D
+Area2D
+Node2D
+AnimatedSprite2D
+Sprite2D
+StaticBody2D
+RigidBody2D
+MeshInstance2D
+CharacterBody2D

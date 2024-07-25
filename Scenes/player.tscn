@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://cknui0tathq7y"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_tq8b1"]
+[ext_resource type="Texture2D" uid="uid://bhiqyek15vo1s" path="res://Sprites/Dimi_Waddle.png" id="2_urqrx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3r6e"]
+size = Vector2(61, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_com8a"]
+atlas = ExtResource("2_urqrx")
+region = Rect2(0, 0, 1450, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7duoq"]
+atlas = ExtResource("2_urqrx")
+region = Rect2(1450, 0, 1450, 1440)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6d32"]
+atlas = ExtResource("2_urqrx")
+region = Rect2(2900, 0, 1450, 1440)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjq62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_com8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7duoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6d32")
+}],
+"loop": true,
+"name": &"WaddleRight",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ujeo2"]
+radius = 51.0
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_tq8b1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(-1.5, -32.5)
+shape = SubResource("RectangleShape2D_k3r6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -36)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_pjq62")
+animation = &"WaddleRight"
+
+[node name="Interaction Components" type="Node2D" parent="."]
+z_index = 1
+
+[node name="InteractionArea" type="Area2D" parent="Interaction Components"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Components/InteractionArea"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_ujeo2")
+
+[node name="InteractLabel" type="Label" parent="Interaction Components"]
+offset_left = -20.0
+offset_top = -97.0
+offset_right = 20.0
+offset_bottom = -74.0
+size_flags_horizontal = 4
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="area_entered" from="Interaction Components/InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="area_exited" from="Interaction Components/InteractionArea" to="." method="_on_interaction_area_area_exited"]
