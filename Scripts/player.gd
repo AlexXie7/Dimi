@@ -7,6 +7,7 @@ var left = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var inventory = []
 
 @onready var all_interactions = []
 @onready var interactLabel = $"Interaction Components/InteractLabel"
@@ -65,7 +66,12 @@ func execute_interaction():
 		var cur_interaction = all_interactions[0]
 		match cur_interaction.interact_type:
 			"print_text": print(cur_interaction.interact_value)
-			"blue_gem": print("Added blue gem to inventory")
-			"purple_gem": print("Added purple gem to inventory")
-			"light_potion": print("Added light potion to inventory")
-			"light_mushroom": print("Added light mushroom to inventory")
+			"pickup": 
+				print("Added " + cur_interaction.interact_value + " to inventory")
+				if(!inventory.has(cur_interaction.interact_value)):
+					inventory.append(cur_interaction.interact_value)
+				print(inventory)
+			"createPotion":
+				print("Making potion")
+				
+				

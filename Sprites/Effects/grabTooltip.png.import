@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bib722ncogu46"
-path="res://.godot/imported/Off_Shine.png-4947c725c0604f9ca5ad0b20d0dd643d.ctex"
+uid="uid://lll6vm0uvw8n"
+path="res://.godot/imported/grabTooltip.png-0a52a69c3d6c80f15e9cac046ee0fab2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Items/Shine/Off_Shine.png"
-dest_files=["res://.godot/imported/Off_Shine.png-4947c725c0604f9ca5ad0b20d0dd643d.ctex"]
+source_file="res://Sprites/Effects/grabTooltip.png"
+dest_files=["res://.godot/imported/grabTooltip.png-0a52a69c3d6c80f15e9cac046ee0fab2.ctex"]
 
 [params]
 

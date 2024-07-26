@@ -185,26 +185,40 @@ position = Vector2(640, 360)
 position = Vector2(493, -128)
 texture = ExtResource("16_7lo6r")
 
+[node name="InteractArea" parent="Items/PBlueGem" instance=ExtResource("22_sxegw")]
+interact_label = "Blue Gem"
+interact_type = "pickup"
+interact_value = "blue_gem"
+
 [node name="PLightMushroom" type="Sprite2D" parent="Items"]
 position = Vector2(564, -132)
 texture = ExtResource("18_2voke")
+
+[node name="InteractArea" parent="Items/PLightMushroom" instance=ExtResource("22_sxegw")]
+interact_label = "Light Mushroom"
+interact_type = "pickup"
+interact_value = "light_mushroom"
 
 [node name="PLightPotion" type="Sprite2D" parent="Items"]
 z_index = -9
 position = Vector2(446, 60)
 texture = ExtResource("19_uctfy")
 
+[node name="InteractArea" parent="Items/PLightPotion" instance=ExtResource("22_sxegw")]
+interact_label = "Light Potion"
+interact_type = "pickup"
+interact_value = "light_potion"
+
 [node name="PPurpleGem" type="Sprite2D" parent="Items"]
 position = Vector2(444, -129)
 texture = ExtResource("20_6uupn")
+
+[node name="InteractArea" parent="Items/PPurpleGem" instance=ExtResource("22_sxegw")]
+interact_label = "Purple Gem"
+interact_type = "pickup"
+interact_value = "purple_gem"
 
 [node name="UBrokenVial" type="Sprite2D" parent="Items"]
 z_index = -9
 position = Vector2(486, 62)
 texture = ExtResource("21_fvsot")
-
-[node name="InteractArea" parent="." instance=ExtResource("22_sxegw")]
-position = Vector2(814, 522)
-interact_label = "test"
-interact_type = "print_text"
-interact_value = "Yay! It Worked"

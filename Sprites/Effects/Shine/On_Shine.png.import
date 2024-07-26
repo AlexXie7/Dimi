@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ckryht3amu5sc"
-path="res://.godot/imported/On_Shine.png-8bc472efd655d30a2e11969861894ccb.ctex"
+path="res://.godot/imported/On_Shine.png-31cc8906253d668517497d4be49f35a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Items/Shine/On_Shine.png"
-dest_files=["res://.godot/imported/On_Shine.png-8bc472efd655d30a2e11969861894ccb.ctex"]
+source_file="res://Sprites/Effects/Shine/On_Shine.png"
+dest_files=["res://.godot/imported/On_Shine.png-31cc8906253d668517497d4be49f35a1.ctex"]
 
 [params]
 
