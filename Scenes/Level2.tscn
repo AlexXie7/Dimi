@@ -71,3 +71,40 @@ position = Vector2(2186, 362)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 7"]
 polygon = PackedVector2Array(-97, -26, 83, -31, 87, 14, 17, 39, -55, 15)
+
+[node name="Platform 8" type="StaticBody2D" parent="."]
+position = Vector2(2014, 275)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 8"]
+polygon = PackedVector2Array(-33, -14, 30, -11, 33, 0, 1, 14, -30, 1)
+
+[node name="Platform 9" type="StaticBody2D" parent="."]
+position = Vector2(1770, 234)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 9"]
+position = Vector2(-4, -3)
+polygon = PackedVector2Array(-48, -22, 131, -22, 148, 10, 186, 21, 205, 103, -15, 112, -51, 76, -217, 54, -223, 35, -79, 30)
+
+[node name="Platform 10" type="StaticBody2D" parent="."]
+position = Vector2(1387, 339)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 10"]
+polygon = PackedVector2Array(-63, -15, 56, -16, 55, 29, 5, 7, -63, 1)
+
+[node name="Platform 11" type="StaticBody2D" parent="."]
+position = Vector2(1119, 347)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 11"]
+polygon = PackedVector2Array(-33, -14, 107, -21, 108, 5, 16, 14, -30, 1)
+
+[node name="Platform 12" type="StaticBody2D" parent="."]
+position = Vector2(925, 453)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 12"]
+polygon = PackedVector2Array(-33, -14, 46, -13, 49, 2, 6, 52, -32, 1)
+
+[node name="Platform 13" type="StaticBody2D" parent="."]
+position = Vector2(598, 637)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 13"]
+polygon = PackedVector2Array(-9, -16, 35, -16, 33, 0, 1, 14, -19, 18, -10, -428)
