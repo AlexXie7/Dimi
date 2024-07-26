@@ -2,3 +2,5 @@ res://Scenes/player.tscn
 res://Scripts/player.gd
 res://Scenes/world.tscn
 res://Scenes/InteractArea.tscn
+res://Scenes/Level2.tscn
+res://Scenes/Level1.tscn

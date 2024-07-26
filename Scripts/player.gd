@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 350.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -620.0
 var left = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -59,7 +59,10 @@ func _on_interaction_area_area_exited(area):
 func update_interactions():
 	if all_interactions:
 		interactLabel.text = all_interactions[0].interact_label
-	else: interactLabel.text = ""
+		$"Interaction Components/InteractionArea/ToolTip".show()
+	else:
+		interactLabel.text = ""
+		$"Interaction Components/InteractionArea/ToolTip".hide()
 
 func execute_interaction():
 	if all_interactions:

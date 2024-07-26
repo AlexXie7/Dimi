@@ -1,21 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cknui0tathq7y"]
+[gd_scene load_steps=19 format=3 uid="uid://cknui0tathq7y"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_tq8b1"]
-[ext_resource type="Texture2D" uid="uid://bhiqyek15vo1s" path="res://Sprites/Dimi/Dimi_Waddle.png" id="2_urqrx"]
+[ext_resource type="Texture2D" uid="uid://bhiqyek15vo1s" path="res://Sprites/Dimi/Dimi_Waddle.png" id="2_ldghu"]
+[ext_resource type="Texture2D" uid="uid://lll6vm0uvw8n" path="res://Sprites/Effects/grabTooltip.png" id="3_w0c0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k3r6e"]
 size = Vector2(61, 57)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_com8a"]
-atlas = ExtResource("2_urqrx")
+atlas = ExtResource("2_ldghu")
 region = Rect2(0, 0, 1450, 1440)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7duoq"]
-atlas = ExtResource("2_urqrx")
+atlas = ExtResource("2_ldghu")
 region = Rect2(1450, 0, 1450, 1440)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6d32"]
-atlas = ExtResource("2_urqrx")
+atlas = ExtResource("2_ldghu")
 region = Rect2(2900, 0, 1450, 1440)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjq62"]
@@ -37,6 +38,70 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ujeo2"]
 radius = 51.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am2m0"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(0, 0, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu7ns"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(50, 0, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs8xm"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(100, 0, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoq2s"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(150, 0, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg1gq"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(200, 0, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63pao"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(0, 25, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb1du"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(50, 25, 50, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4jvy"]
+atlas = ExtResource("3_w0c0r")
+region = Rect2(100, 25, 50, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kax8w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am2m0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu7ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs8xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoq2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63pao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb1du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4jvy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
@@ -64,6 +129,11 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interaction Components/InteractionArea"]
 position = Vector2(0, -32)
 shape = SubResource("CircleShape2D_ujeo2")
+
+[node name="ToolTip" type="AnimatedSprite2D" parent="Interaction Components/InteractionArea"]
+position = Vector2(-49, -88)
+sprite_frames = SubResource("SpriteFrames_kax8w")
+autoplay = "default"
 
 [node name="InteractLabel" type="Label" parent="Interaction Components"]
 offset_left = -20.0
