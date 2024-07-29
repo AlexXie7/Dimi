@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4euqyffdfxhj"]
+
+[ext_resource type="Script" path="res://Scripts/Title Screen.gd" id="1_5owmd"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5owmd")
+
+[node name="Level1Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 574.0
+offset_top = 355.0
+offset_right = 615.0
+offset_bottom = 386.0
+text = "Play"
+
+[connection signal="pressed" from="Level1Button" to="." method="_on_level_1_button_pressed"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://eugcd300126i"]
+
+[node name="Cauldron" type="Node2D"]
+position = Vector2(0, -1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["dropable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+metadata/_edit_use_anchors_ = true
