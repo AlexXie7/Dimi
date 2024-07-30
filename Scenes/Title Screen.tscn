@@ -79,11 +79,11 @@ centered = false
 position = Vector2(640, 520)
 sprite_frames = SubResource("SpriteFrames_xnddv")
 autoplay = "default"
-frame_progress = 0.110819
+frame_progress = 0.291217
 
 [node name="Book" type="AnimatedSprite2D" parent="."]
 position = Vector2(940, 169)
 sprite_frames = SubResource("SpriteFrames_vd7jp")
-frame_progress = 0.447542
+frame_progress = 0.62794
 
 [connection signal="pressed" from="Level1Button" to="." method="_on_level_1_button_pressed"]

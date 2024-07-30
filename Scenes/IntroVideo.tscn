@@ -1,7 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://dswnuehd638b2"]
+[gd_scene load_steps=30 format=3 uid="uid://dswnuehd638b2"]
 
 [ext_resource type="Texture2D" uid="uid://bktaklutr1lvb" path="res://Sprites/IntroVideo/0t.png" id="1_bnvso"]
-[ext_resource type="Script" path="res://Scenes/IntroVideo.gd" id="1_y4crf"]
+[ext_resource type="Script" path="res://Scripts/IntroVideo.gd" id="1_y4crf"]
 [ext_resource type="Texture2D" uid="uid://cg5yomnkjwunn" path="res://Sprites/IntroVideo/1.png" id="2_aiggw"]
 [ext_resource type="Texture2D" uid="uid://d4dncjomach1" path="res://Sprites/IntroVideo/2.png" id="3_3r6ww"]
 [ext_resource type="Texture2D" uid="uid://dnvloenpo1tlb" path="res://Sprites/IntroVideo/3.png" id="4_75ehi"]
@@ -20,6 +20,14 @@
 [ext_resource type="Texture2D" uid="uid://bns6ulgcglwd8" path="res://Sprites/IntroVideo/14t.png" id="17_bp23l"]
 [ext_resource type="Texture2D" uid="uid://c0j3m63kjurbp" path="res://Sprites/IntroVideo/15t.png" id="18_3bft2"]
 [ext_resource type="Texture2D" uid="uid://b3xdef6yp4f66" path="res://Sprites/IntroVideo/15.png" id="19_w6dsk"]
+[ext_resource type="Texture2D" uid="uid://dxsjdnib114tp" path="res://Sprites/IntroVideo/into-2.png" id="21_tala5"]
+[ext_resource type="Texture2D" uid="uid://cc1ty8tnc0qag" path="res://Sprites/IntroVideo/1-2.png" id="22_wxbld"]
+[ext_resource type="Texture2D" uid="uid://bcqldtbmmc572" path="res://Sprites/IntroVideo/2-2.png" id="23_g4nnr"]
+[ext_resource type="Texture2D" uid="uid://bvhy72j3jx307" path="res://Sprites/IntroVideo/3-2.png" id="24_bsvha"]
+[ext_resource type="Texture2D" uid="uid://d22cnugavatgm" path="res://Sprites/IntroVideo/4-2.png" id="25_80nm2"]
+[ext_resource type="Texture2D" uid="uid://c7s0ci5dq63cy" path="res://Sprites/IntroVideo/5-2.png" id="26_6hmp8"]
+[ext_resource type="Texture2D" uid="uid://ca35m8rhtv7oy" path="res://Sprites/IntroVideo/6-2.png" id="27_jtd0b"]
+[ext_resource type="Texture2D" uid="uid://h0nv7q0qk0ew" path="res://Sprites/IntroVideo/7-2.png" id="28_wic2n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o8rp"]
 animations = [{
@@ -78,8 +86,32 @@ animations = [{
 "duration": 4.0,
 "texture": ExtResource("18_3bft2")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": ExtResource("19_w6dsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_tala5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wxbld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_g4nnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bsvha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_80nm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_6hmp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_jtd0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wic2n")
 }],
 "loop": false,
 "name": &"default",
@@ -98,7 +130,7 @@ script = ExtResource("1_y4crf")
 [node name="IntroVideo" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8o8rp")
 autoplay = "default"
-frame = 18
+frame = 26
 frame_progress = 1.0
 centered = false
 

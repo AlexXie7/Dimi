@@ -10,6 +10,7 @@ var crouched = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var inventory = []
+var litLamps = 0
 
 @onready var all_interactions = []
 @onready var interactLabel = $"Interaction Components/InteractLabel"
@@ -109,6 +110,16 @@ func execute_interaction():
 			"pickupPage":
 				print("Picking up page")
 				inventory.append(cur_interaction.interact_value)
+			"lightLamp":
+				litLamps += 1
+				cur_interaction.lightLamp()
+				cur_interaction.interactable = false
+				cur_interaction.hideSparkle()
+				update_interactions()
+				if litLamps == 4:
+					get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
 				
-				
-				
+
+
+func _on_reset_box_body_entered(body):
+	global_position = Vector2(440, 1180)

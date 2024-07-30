@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5etw7ya82ocg"]
+
+[ext_resource type="Script" path="res://Scripts/MusicController.gd" id="1_ag4dn"]
+[ext_resource type="AudioStream" uid="uid://cu2537g76r14t" path="res://Music/Symmetry.mp3" id="2_y0ck2"]
+
+[node name="MusicController" type="Node"]
+script = ExtResource("1_ag4dn")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y0ck2")
+volume_db = -10.0

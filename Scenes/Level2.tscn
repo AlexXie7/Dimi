@@ -1,17 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce0qj76tkbohg"]
+[gd_scene load_steps=18 format=3 uid="uid://ce0qj76tkbohg"]
 
 [ext_resource type="Texture2D" uid="uid://csxhldqbfh3mr" path="res://Sprites/Level2/Level2.png" id="1_o53tp"]
 [ext_resource type="PackedScene" uid="uid://cknui0tathq7y" path="res://Scenes/player.tscn" id="2_wyues"]
 [ext_resource type="Texture2D" uid="uid://dqxnqx5ei75ac" path="res://Sprites/Level2/PlatformLump.png" id="3_ifutd"]
+[ext_resource type="Texture2D" uid="uid://deiapcqibamt3" path="res://Sprites/Level2/Lamps/left_lamp.png" id="4_d8lvq"]
+[ext_resource type="Texture2D" uid="uid://c84rteuogj7wo" path="res://Sprites/Level2/Lamps/light_left_lamp.png" id="5_dgqad"]
+[ext_resource type="Texture2D" uid="uid://c8dtv2520px4g" path="res://Sprites/Level2/Lamps/middle_bottom_lamp.png" id="6_78705"]
+[ext_resource type="PackedScene" uid="uid://d2p02jgxh4p6r" path="res://Scenes/InteractArea.tscn" id="6_rbbca"]
+[ext_resource type="Texture2D" uid="uid://brsl21ov7vcci" path="res://Sprites/Level2/Lamps/light_middle_bottom_lamp.png" id="7_3bg6q"]
+[ext_resource type="Texture2D" uid="uid://bxyc7jcxkapex" path="res://Sprites/Level2/Lamps/middle_top_lamp.png" id="8_roe2l"]
+[ext_resource type="Texture2D" uid="uid://ddhsimpwqnkse" path="res://Sprites/Level2/Lamps/light_middle_top_lamp.png" id="9_vb4d3"]
+[ext_resource type="Texture2D" uid="uid://dkb7l4cvr0rll" path="res://Sprites/Level2/Lamps/right_bottom_lamp.png" id="10_3v6wd"]
+[ext_resource type="Texture2D" uid="uid://df31f8rx11six" path="res://Sprites/Level2/Lamps/light_right_bottom_lamp.png" id="11_4wski"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opn33"]
+size = Vector2(2570, 95)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m6i34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_d8lvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dgqad")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_idvdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_78705")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3bg6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_27gpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_roe2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vb4d3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkfcm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_3v6wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4wski")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level2" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_o53tp")
 centered = false
 
 [node name="Player" parent="." instance=ExtResource("2_wyues")]
-position = Vector2(421, 959)
+position = Vector2(440, 1183)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
@@ -20,96 +88,154 @@ limit_right = 2560
 limit_bottom = 1440
 limit_smoothed = true
 
-[node name="Platform 1" type="StaticBody2D" parent="."]
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform 1" type="StaticBody2D" parent="Platforms"]
 position = Vector2(315, 1318)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 1"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 1"]
 polygon = PackedVector2Array(-313, -1319, -275.769, -102.881, 328, -101, 352, 2, 357, 115, -314, 119)
 
-[node name="Platform 2" type="StaticBody2D" parent="."]
+[node name="Platform 2" type="StaticBody2D" parent="Platforms"]
 position = Vector2(985, 1377)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 2"]
 polygon = PackedVector2Array(-14, -71, 98, -67, 120, -56, 131, -38, 116, -14, 95, -14, 91, 10, 68, 26, 76, 41, 81, 56, 108, 62, -140, 63, -113, 54, -67, 22, -74, -5, -129, -46, -134, -73)
 
-[node name="Platform 3" type="StaticBody2D" parent="."]
+[node name="Platform 3" type="StaticBody2D" parent="Platforms"]
 position = Vector2(1228, 1093)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 3"]
 polygon = PackedVector2Array(-181, 23, -106, 25, -129, -42, 121, -37, 125, -16, 96, 38, 164, 46, 168, 67, 135, 87, 98, 90, 2, 77, -157, 68)
 
-[node name="Platform 4" type="StaticBody2D" parent="."]
+[node name="Platform 4" type="StaticBody2D" parent="Platforms"]
 position = Vector2(1906, 1129)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 4"]
 polygon = PackedVector2Array(-339, -244, -347, -117, -265, -98, -237, 75, -180, 116, -195, 261, -471, 285, -474, 306, 403, 313, 242, 242, 212, 153, 158, 126, 239, -121, 330, -94, 317, -273)
 
-[node name="Right Wall" type="StaticBody2D" parent="."]
+[node name="Right Wall" type="StaticBody2D" parent="Platforms"]
 position = Vector2(2516, 1372)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Right Wall"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Right Wall"]
 polygon = PackedVector2Array(-167, -32, -168, 66, 46, 68, 45, -1372, -375, -1373, -107, -1245, -36, -1132, -31, -963, -127, -946, -118, -908, -45, -906, -16, -861, -18, -370, -73, -368, -76, -333, -22, -324, -36, -41)
 
-[node name="Platform 5" type="StaticBody2D" parent="."]
+[node name="Platform 5" type="StaticBody2D" parent="Platforms"]
 position = Vector2(2300, 1202)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 5"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 5"]
 polygon = PackedVector2Array(-57, -36, -56, -20, -31, -5, -39, 29, 38, 32, 68, 1, 73, -38)
 
-[node name="Platform 6" type="StaticBody2D" parent="."]
+[node name="Platform 6" type="StaticBody2D" parent="Platforms"]
 position = Vector2(2347, 694)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 6"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 6"]
 polygon = PackedVector2Array(-112, -33, -109, -13, -35, -11, -38, 28, -67, 39, 15, 63, 76, 33, 40, -19, 78, -25, 75, -54)
 
-[node name="PlatformLump" type="Sprite2D" parent="."]
+[node name="PlatformLump" type="Sprite2D" parent="Platforms"]
 position = Vector2(2216, 548)
 texture = ExtResource("3_ifutd")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="PlatformLump"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Platforms/PlatformLump"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlatformLump/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/PlatformLump/StaticBody2D"]
 polygon = PackedVector2Array(-16, -11, 19, -11, 22, -3, 18, 15, -4, 22, -17, 8)
 
-[node name="Platform 7" type="StaticBody2D" parent="."]
+[node name="Platform 7" type="StaticBody2D" parent="Platforms"]
 position = Vector2(2186, 362)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 7"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 7"]
 polygon = PackedVector2Array(-97, -26, 83, -31, 87, 14, 17, 39, -55, 15)
 
-[node name="Platform 8" type="StaticBody2D" parent="."]
+[node name="Platform 8" type="StaticBody2D" parent="Platforms"]
 position = Vector2(2014, 275)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 8"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 8"]
 polygon = PackedVector2Array(-33, -14, 30, -11, 33, 0, 1, 14, -30, 1)
 
-[node name="Platform 9" type="StaticBody2D" parent="."]
+[node name="Platform 9" type="StaticBody2D" parent="Platforms"]
 position = Vector2(1770, 234)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 9"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 9"]
 position = Vector2(-4, -3)
 polygon = PackedVector2Array(-48, -22, 131, -22, 148, 10, 186, 21, 205, 103, -15, 112, -51, 76, -217, 54, -223, 35, -79, 30)
 
-[node name="Platform 10" type="StaticBody2D" parent="."]
+[node name="Platform 10" type="StaticBody2D" parent="Platforms"]
 position = Vector2(1387, 339)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 10"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 10"]
 polygon = PackedVector2Array(-63, -15, 56, -16, 55, 29, 5, 7, -63, 1)
 
-[node name="Platform 11" type="StaticBody2D" parent="."]
+[node name="Platform 11" type="StaticBody2D" parent="Platforms"]
 position = Vector2(1119, 347)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 11"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 11"]
 polygon = PackedVector2Array(-33, -14, 107, -21, 108, 5, 16, 14, -30, 1)
 
-[node name="Platform 12" type="StaticBody2D" parent="."]
+[node name="Platform 12" type="StaticBody2D" parent="Platforms"]
 position = Vector2(925, 453)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 12"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 12"]
 polygon = PackedVector2Array(-33, -14, 46, -13, 49, 2, 6, 52, -32, 1)
 
-[node name="Platform 13" type="StaticBody2D" parent="."]
+[node name="Platform 13" type="StaticBody2D" parent="Platforms"]
 position = Vector2(598, 637)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform 13"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platforms/Platform 13"]
 polygon = PackedVector2Array(-9, -16, 35, -16, 33, 0, 1, 14, -19, 18, -10, -428)
+
+[node name="ResetBox" type="Area2D" parent="."]
+position = Vector2(-3, 1510)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetBox"]
+position = Vector2(1286, 59)
+shape = SubResource("RectangleShape2D_opn33")
+
+[node name="Lamps" type="Node2D" parent="."]
+
+[node name="LeftLamp" type="AnimatedSprite2D" parent="Lamps"]
+z_index = 11
+sprite_frames = SubResource("SpriteFrames_m6i34")
+centered = false
+
+[node name="InteractArea" parent="Lamps/LeftLamp" instance=ExtResource("6_rbbca")]
+position = Vector2(593, 581)
+scale = Vector2(3, 3)
+interact_label = "Light the Lamp!"
+interact_type = "lightLamp"
+interact_value = "left"
+
+[node name="MiddleBottomLamp" type="AnimatedSprite2D" parent="Lamps"]
+sprite_frames = SubResource("SpriteFrames_idvdp")
+centered = false
+
+[node name="InteractArea" parent="Lamps/MiddleBottomLamp" instance=ExtResource("6_rbbca")]
+position = Vector2(1818, 804)
+scale = Vector2(4, 4)
+interact_label = "Light the Lamp!"
+interact_type = "lightLamp"
+interact_value = "middleBottom"
+
+[node name="MiddleTopLamp" type="AnimatedSprite2D" parent="Lamps"]
+sprite_frames = SubResource("SpriteFrames_27gpn")
+centered = false
+
+[node name="InteractArea" parent="Lamps/MiddleTopLamp" instance=ExtResource("6_rbbca")]
+position = Vector2(1596, 174)
+scale = Vector2(2.5, 2.5)
+interact_label = "Light the Lamp!"
+interact_type = "lightLamp"
+interact_value = "middleTop"
+
+[node name="RightLamp" type="AnimatedSprite2D" parent="Lamps"]
+sprite_frames = SubResource("SpriteFrames_dkfcm")
+centered = false
+
+[node name="InteractArea" parent="Lamps/RightLamp" instance=ExtResource("6_rbbca")]
+position = Vector2(2457, 1279)
+scale = Vector2(2.5, 2.5)
+interact_label = "Light the Lamp!"
+interact_type = "lightLamp"
+interact_value = "right"
+
+[connection signal="body_entered" from="ResetBox" to="Player" method="_on_reset_box_body_entered"]

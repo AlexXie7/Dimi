@@ -8,3 +8,10 @@ class_name interactable extends Area2D
 
 func hideSparkle():
 	$Sparkle.hide()
+
+# signal lampLit
+
+func lightLamp():
+	# lampLit.emit()
+	get_parent().play("default")
+
