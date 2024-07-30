@@ -1,8 +1,11 @@
+res://Scenes/player.tscn
+res://Scripts/player.gd
+res://Scenes/Level1.tscn
+res://Scenes/InteractArea.tscn
 res://Scenes/Level2.tscn
 res://Scenes/Title Screen.tscn
-res://Scenes/Level1.tscn
-res://Scenes/player.tscn
-res://Scenes/InteractArea.tscn
-res://Scenes/Title Screen.gd
 res://Scenes/Cauldron.tscn
-res://Scripts/global.gd
+res://Scripts/InteractArea.gd
+res://Scenes/IntroVideo.tscn
+res://Scripts/Title Screen.gd
+res://Scenes/IntroVideo.gd

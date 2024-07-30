@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ttt3um2aff"]
+[gd_scene load_steps=46 format=3 uid="uid://ttt3um2aff"]
 
 [ext_resource type="PackedScene" uid="uid://cknui0tathq7y" path="res://Scenes/player.tscn" id="1_io3in"]
 [ext_resource type="Texture2D" uid="uid://scj8vd2kjn1o" path="res://Sprites/Level1/2_Ground.png" id="2_la421"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bsrxymtsqq2jr" path="res://Sprites/Items/P_Purple_Gem.png" id="21_0n208"]
 [ext_resource type="Texture2D" uid="uid://cmi058336ubk4" path="res://Sprites/Items/U_Broken_Vial.png" id="22_5d45r"]
 [ext_resource type="Texture2D" uid="uid://d1b8mrli8sit1" path="res://Sprites/Items/Book.png" id="23_f0vcx"]
+[ext_resource type="Texture2D" uid="uid://dovnapk24w3vm" path="res://Sprites/Items/Cauldron/cauldron_in_room.png" id="23_h2d25"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_doao0"]
 size = Vector2(1279, 20)
@@ -38,6 +39,12 @@ size = Vector2(222, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6yp3"]
 size = Vector2(433, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeqp0"]
+size = Vector2(65, 865)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3a3fp"]
+size = Vector2(32, 868)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eupqv"]
 atlas = ExtResource("23_f0vcx")
@@ -163,6 +170,7 @@ z_index = 99
 position = Vector2(639, 35)
 
 [node name="Hotbar" type="Sprite2D" parent="UI"]
+visible = false
 texture = ExtResource("3_20pli")
 
 [node name="CSmallPurpleGem" type="Sprite2D" parent="UI/Hotbar"]
@@ -277,53 +285,91 @@ position = Vector2(-5.5, -3.5)
 shape = SubResource("RectangleShape2D_q6yp3")
 one_way_collision = true
 
+[node name="Scene Walls" type="Node2D" parent="Platforms"]
+position = Vector2(-607, 18)
+
+[node name="LeftWall" type="StaticBody2D" parent="Platforms/Scene Walls"]
+
+[node name="LeftWallCollision" type="CollisionShape2D" parent="Platforms/Scene Walls/LeftWall"]
+visible = false
+z_index = 11
+position = Vector2(0.5, -90.5)
+shape = SubResource("RectangleShape2D_yeqp0")
+
+[node name="RightWall" type="StaticBody2D" parent="Platforms/Scene Walls"]
+position = Vector2(1263, -34)
+
+[node name="RightWallCollision" type="CollisionShape2D" parent="Platforms/Scene Walls/RightWall"]
+visible = false
+z_index = 11
+position = Vector2(-6, -59)
+shape = SubResource("RectangleShape2D_3a3fp")
+
 [node name="Items" type="Node2D" parent="."]
 z_index = 15
 position = Vector2(640, 360)
 
-[node name="PBlueGem" type="Sprite2D" parent="Items"]
-position = Vector2(493, -128)
+[node name="Interactables" type="Node2D" parent="Items"]
+
+[node name="PBlueGem" type="Sprite2D" parent="Items/Interactables"]
+position = Vector2(586, -128)
 texture = ExtResource("19_5q0pn")
 
-[node name="InteractArea" parent="Items/PBlueGem" instance=ExtResource("20_82eyj")]
+[node name="InteractArea" parent="Items/Interactables/PBlueGem" instance=ExtResource("20_82eyj")]
 interact_label = "Blue Gem"
 interact_type = "pickup"
 interact_value = "blue_gem"
 
-[node name="PLightMushroom" type="Sprite2D" parent="Items"]
-position = Vector2(564, -132)
+[node name="PLightMushroom" type="Sprite2D" parent="Items/Interactables"]
+z_index = -9
+position = Vector2(591, 59)
 texture = ExtResource("7_rfmy2")
 
-[node name="InteractArea" parent="Items/PLightMushroom" instance=ExtResource("20_82eyj")]
+[node name="InteractArea" parent="Items/Interactables/PLightMushroom" instance=ExtResource("20_82eyj")]
 interact_label = "Light Mushroom"
 interact_type = "pickup"
 interact_value = "light_mushroom"
 
-[node name="PLightPotion" type="Sprite2D" parent="Items"]
+[node name="PLightPotion" type="Sprite2D" parent="Items/Interactables"]
 z_index = -9
 position = Vector2(446, 60)
 texture = ExtResource("6_syriw")
 
-[node name="InteractArea" parent="Items/PLightPotion" instance=ExtResource("20_82eyj")]
+[node name="InteractArea" parent="Items/Interactables/PLightPotion" instance=ExtResource("20_82eyj")]
 interact_label = "Light Potion"
 interact_type = "pickup"
 interact_value = "light_potion"
 
-[node name="PPurpleGem" type="Sprite2D" parent="Items"]
-position = Vector2(444, -129)
+[node name="PPurpleGem" type="Sprite2D" parent="Items/Interactables"]
+position = Vector2(467, -129)
 texture = ExtResource("21_0n208")
 
-[node name="InteractArea" parent="Items/PPurpleGem" instance=ExtResource("20_82eyj")]
+[node name="InteractArea" parent="Items/Interactables/PPurpleGem" instance=ExtResource("20_82eyj")]
 interact_label = "Purple Gem"
 interact_type = "pickup"
 interact_value = "purple_gem"
+
+[node name="Book" type="AnimatedSprite2D" parent="Items/Interactables"]
+position = Vector2(4, 151)
+sprite_frames = SubResource("SpriteFrames_v0ljk")
+autoplay = "default"
+
+[node name="InteractArea" parent="Items/Interactables/Book" instance=ExtResource("20_82eyj")]
+position = Vector2(0, 27)
+interact_label = "Potion Recipe"
+interact_type = "pickup"
+interact_value = "page1"
+
+[node name="Cauldron" type="Sprite2D" parent="Items/Interactables"]
+position = Vector2(-335, 247)
+texture = ExtResource("23_h2d25")
+
+[node name="InteractArea" parent="Items/Interactables/Cauldron" instance=ExtResource("20_82eyj")]
+scale = Vector2(6, 6)
+interact_label = "Cauldron"
+interact_type = "createPotion"
 
 [node name="UBrokenVial" type="Sprite2D" parent="Items"]
 z_index = -9
 position = Vector2(486, 62)
 texture = ExtResource("22_5d45r")
-
-[node name="Book" type="AnimatedSprite2D" parent="Items"]
-position = Vector2(4, 151)
-sprite_frames = SubResource("SpriteFrames_v0ljk")
-autoplay = "default"

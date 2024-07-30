@@ -14,6 +14,11 @@ centered = false
 position = Vector2(421, 959)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 2560
+limit_bottom = 1440
+limit_smoothed = true
 
 [node name="Platform 1" type="StaticBody2D" parent="."]
 position = Vector2(315, 1318)

@@ -1,6 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4euqyffdfxhj"]
+[gd_scene load_steps=14 format=3 uid="uid://d4euqyffdfxhj"]
 
 [ext_resource type="Script" path="res://Scripts/Title Screen.gd" id="1_5owmd"]
+[ext_resource type="Texture2D" uid="uid://00dn1nrlls3t" path="res://Sprites/Title/Play1.png" id="2_oa4ov"]
+[ext_resource type="Texture2D" uid="uid://ff6cqn8w188r" path="res://Sprites/Title/Play2.png" id="3_hegln"]
+[ext_resource type="Texture2D" uid="uid://b8e2vagg6rus0" path="res://Sprites/Title/startscreenstr.png" id="4_rw5nl"]
+[ext_resource type="Texture2D" uid="uid://c8hgnmi34ftnv" path="res://Sprites/Title/dimi1.png" id="5_legyl"]
+[ext_resource type="Texture2D" uid="uid://ctgu5wr15juv" path="res://Sprites/Title/dimi2.png" id="6_oxv2o"]
+[ext_resource type="Texture2D" uid="uid://cdx2524a8mkml" path="res://Sprites/Title/dimi3.png" id="7_k63vr"]
+[ext_resource type="Texture2D" uid="uid://oqsraqbvwon7" path="res://Sprites/Title/book1.png" id="8_3gwmw"]
+[ext_resource type="Texture2D" uid="uid://1rgxn6fju7sh" path="res://Sprites/Title/book2.png" id="9_iyysu"]
+[ext_resource type="Texture2D" uid="uid://dn65hvc4ojw1d" path="res://Sprites/Title/book3.png" id="10_iloct"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_lntn0"]
+frames = 2
+frame_0/texture = ExtResource("2_oa4ov")
+frame_1/texture = ExtResource("3_hegln")
+frame_1/duration = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xnddv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_legyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_oxv2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k63vr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vd7jp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3gwmw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iyysu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iloct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_iyysu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -12,11 +64,26 @@ grow_vertical = 2
 script = ExtResource("1_5owmd")
 
 [node name="Level1Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 574.0
-offset_top = 355.0
-offset_right = 615.0
-offset_bottom = 386.0
-text = "Play"
+offset_left = 918.0
+offset_top = 555.0
+offset_right = 1226.0
+offset_bottom = 683.0
+icon = SubResource("AnimatedTexture_lntn0")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("4_rw5nl")
+centered = false
+
+[node name="Dimi" type="AnimatedSprite2D" parent="."]
+position = Vector2(640, 520)
+sprite_frames = SubResource("SpriteFrames_xnddv")
+autoplay = "default"
+frame_progress = 0.110819
+
+[node name="Book" type="AnimatedSprite2D" parent="."]
+position = Vector2(940, 169)
+sprite_frames = SubResource("SpriteFrames_vd7jp")
+frame_progress = 0.447542
 
 [connection signal="pressed" from="Level1Button" to="." method="_on_level_1_button_pressed"]

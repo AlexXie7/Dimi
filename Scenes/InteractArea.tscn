@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2p02jgxh4p6r"]
+[gd_scene load_steps=6 format=3 uid="uid://d2p02jgxh4p6r"]
 
 [ext_resource type="Script" path="res://Scripts/InteractArea.gd" id="1_oj1gk"]
+[ext_resource type="Texture2D" uid="uid://bib722ncogu46" path="res://Sprites/Effects/Shine/Off_Shine.png" id="2_kleis"]
+[ext_resource type="Texture2D" uid="uid://ckryht3amu5sc" path="res://Sprites/Effects/Shine/On_Shine.png" id="3_8qn4x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wn7f0"]
 radius = 19.0263
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ilgv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kleis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8qn4x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="InteractArea" type="Area2D"]
 collision_layer = 2
@@ -13,3 +29,9 @@ script = ExtResource("1_oj1gk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wn7f0")
+
+[node name="Sparkle" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, -22)
+sprite_frames = SubResource("SpriteFrames_3ilgv")
+autoplay = "default"
+frame_progress = 0.908887
